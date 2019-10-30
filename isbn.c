@@ -28,14 +28,10 @@ int main(void)
         isbn = isbn / 10;
         //keep track of the sum of all of the digits
         y = x + y;
-        printf("%i\n", x);
-        printf("  %i\n", y);
     }
     //divide the total by 11
     y = y % 11;
-    printf("%i\n", y);
     //print yes or no depending on whether the ISBN is valid 
-    
     if(isbn % 10 == y)
     {
         printf("YES\n");
