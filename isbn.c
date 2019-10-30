@@ -39,7 +39,7 @@ int main(void)
     }
     y = y / 11;
     printf("%i\n", y);
-    if(y % 10 == 0)
+    if(isbn % 10 == x)
     {
         printf("YES\n");
     }
