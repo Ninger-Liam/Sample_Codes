@@ -12,7 +12,6 @@ int main(void)
         isbn = get_long("ISBN:");
     }
     while (isbn < 0);
-    long isbnTwo = isbn;
     //declare the variable for each digit
     int x = 0;
     //declare the variable to keep track of the sum
