@@ -1,0 +1,5 @@
+Name: Liam Ninger
+Period: 2
+
+Write your reflection here
+In Cash, mmost of it I felt was pretty easy because the problem seemed pretty straight forward: figure out the amount of money that the user wants to convert into coins and then break it down into the smallest number of coins possible. The only annoying part about writing this program is the amount of variables that were needed to do these conversions and writing the algorithm for each indivudual conversion, which got tedious quickly. The most improtant of these conversions was the conversion from dollars to cents because it helps avoid the inconsistency of floating point impercision. Changing it From dollars to cents allows us to get the most accurate calculations afterwards.
