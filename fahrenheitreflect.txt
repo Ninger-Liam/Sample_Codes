@@ -1,0 +1,5 @@
+Name: Liam Ninger
+Period: 2
+
+Write your reflection here
+Fahrenheit was very confusing to me at first because I didn't understand how the floating point variable worked.It took me many attempts to make the formula as well because I wasn’t sure how to write basic arithmetic in cs50. I also tried over and over again “float c = (“C: “)” before realizing that I have to use a “get_float” in order properly prompt the user for the degrees in celsius. Writing the formula was hard mainly due to the fact that I forgot that I was supposed to use parentheses to speratate which part of the equation I want to calculate first. After that I struggled with printing the float. I kept putting the decimal in the wrong place so it would print as .142.500000 instead of just 42.5. Eventually I got it figured out and the program ran smoothly. I honestly was a little annoyed that I struggled so much with just three lines of code, but that’s all just part of the learning process.
