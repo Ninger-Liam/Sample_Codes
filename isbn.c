@@ -17,7 +17,7 @@ int main(void)
     //declare the variable to keep track of the sum
     int y = x;
     //isbn algorithm 
-    for(int digit = 10; digit > 0; digit--)
+    for (int digit = 10; digit > 0; digit--)
     {
         //find the value of the last digit
         x = isbn % 10;
@@ -31,7 +31,7 @@ int main(void)
     //divide the total by 11
     y = y % 11;
     //print yes or no depending on whether the ISBN is valid 
-    if(isbn % 10 == y)
+    if (isbn % 10 == y)
     {
         printf("YES\n");
     }
