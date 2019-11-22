@@ -23,11 +23,11 @@ int main(int argc, string argv[])
         int v = checkVisa(argv[1]);
         if (v == 10)
         {
-            printf("visa\n");
+            printf("VISA\n");
         }
         else
         {
-            printf("invalid number\n");
+            printf("INVALID\n");
         }
     }
     else if (ct == 3)
@@ -35,11 +35,11 @@ int main(int argc, string argv[])
         int a = checkVisa(argv[1]);
         if (a == 10)
         {
-            printf("AmEx\n");
+            printf("AMEX\n");
         }
         else
         {
-            printf("invalid number\n");
+            printf("INVALID\n");
         }
     }
     else if (ct == 4)
@@ -47,20 +47,20 @@ int main(int argc, string argv[])
         int mc = checkMstrCrd(argv[1]);
         if (mc == 10)
         {
-            printf("MasterCard\n");
+            printf("MASTERCARD\n");
         }
         else
         {
-            printf("invalid number\n");
+            printf("INVALID\n");
         }
     }
     else if (ct == 1)
     {
-        printf("invalid number\n");
+        printf("INVALID\n");
     }
     else
     {
-        printf("invalid number\n");
+        printf("INVALID\n");
     }
 }
 
