@@ -9,19 +9,24 @@ long checkVisa(string visa);
 long checkAmEx(string amex);
 long checkMstrCrd(string mstrCrd);
 long checkCardType(string cn);
+bool checkNumeric(string cn);
 
-int main(int argc, string argv[])
+int main(void)
 {
-    if (argc != 2)
+    string creditNum;
+    do
     {
-        printf("Usage: ./credit <credit card number>");
-    }
+        creditNum = get_string("Enter Your Credit Card Number:");
 
-    long creditNum = atol(argv[1]);
-    int ct = checkCardType(argv[1]);
+    }
+    while (checkNumeric(creditNum) == false);
+
+
+    int ct = checkCardType(creditNum);
+
     if (ct == 2)
     {
-        int v = checkVisa(argv[1]);
+        int v = checkVisa(creditNum);
         if (v == 10)
         {
             printf("VISA\n");
@@ -33,7 +38,7 @@ int main(int argc, string argv[])
     }
     else if (ct == 3)
     {
-        int a = checkAmEx(argv[1]);
+        int a = checkAmEx(creditNum);
         if (a == 10)
         {
             printf("AMEX\n");
@@ -45,7 +50,7 @@ int main(int argc, string argv[])
     }
     else if (ct == 4)
     {
-        int mc = checkMstrCrd(argv[1]);
+        int mc = checkMstrCrd(creditNum);
         if (mc == 10)
         {
             printf("MASTERCARD\n");
@@ -63,6 +68,19 @@ int main(int argc, string argv[])
     {
         printf("INVALID\n");
     }
+}
+
+bool checkNumeric(string cn)
+{
+    int l = strlen(cn);
+    for (int i = 0; i < l; i++)
+    {
+        if (!isdigit(cn[i]))
+        {
+            return false;
+        }
+    }
+    return true;
 }
 
 long checkCardType(string cn)
@@ -147,7 +165,7 @@ long checkVisa(string visa)
             z = 0;
             x = cn % 10;
             x *= 2;
-            if (x > 10)
+            if (x > 9)
             {
                 z = x % 10;
                 x /= 10;
@@ -195,7 +213,7 @@ long checkAmEx(string amex)
         z = 0;
         x = cn % 10;
         x *= 2;
-        if (x > 10)
+        if (x > 9)
         {
             z = x % 10;
             x /= 10;
@@ -243,7 +261,7 @@ long checkMstrCrd(string mstrCrd)
         z = 0;
         x = cn % 10;
         x *= 2;
-        if (x > 10)
+        if (x > 9)
         {
             z = x % 10;
             x /= 10;
