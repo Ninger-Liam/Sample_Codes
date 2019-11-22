@@ -146,7 +146,7 @@ long checkSum(string cn)
             z = 0;
             x = ccn % 10;
             x *= 2;
-            if (x > 10)
+            if (x > 9)
             {
                 z = x % 10;
                 x /= 10;
