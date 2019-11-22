@@ -73,6 +73,11 @@ int main(void)
 bool checkNumeric(string cn)
 {
     int l = strlen(cn);
+    if (l == 0)
+    {
+        return false;
+    }
+
     for (int i = 0; i < l; i++)
     {
         if (!isdigit(cn[i]))
