@@ -141,7 +141,7 @@ long checkSum(string cn)
 
     // if (l == 13)
     // {
-        for (int i = 0; i < (l / 2); i++)
+        for (int i = 0, j = (l / 2); i < j; i++)
         {
             z = 0;
             x = ccn % 10;
@@ -157,26 +157,26 @@ long checkSum(string cn)
             yy += xx;
             ccn/= 10;
         }
-    // }
-    // else if (l == 16)
-    // {
-    //     for (int i = 0; i < (l / 2); i++)
-    //     {
-    //         z = 0;
-    //         x = cn % 10;
-    //         x *= 2;
-    //         if (x > 9)
-    //         {
-    //             z = x % 10;
-    //             x /= 10;
-    //         }
-    //         y = x + y + z;
-    //         cn /= 10;
-    //         xx = cn % 10;
-    //         yy += xx;
-    //         cn/= 10;
-    //     }
-    // // }
+//     // }
+//     // else if (l == 16)
+//     // {
+//     //     for (int i = 0; i < (l / 2); i++)
+//     //     {
+//     //         z = 0;
+//     //         x = cn % 10;
+//     //         x *= 2;
+//     //         if (x > 9)
+//     //         {
+//     //             z = x % 10;
+//     //             x /= 10;
+//     //         }
+//     //         y = x + y + z;
+//     //         cn /= 10;
+//     //         xx = cn % 10;
+//     //         yy += xx;
+//     //         cn/= 10;
+//     //     }
+//     // // }
     y += yy;
 
     if (y % 10 == 0)
@@ -189,98 +189,98 @@ long checkSum(string cn)
         }
 }
 
-long checkAmEx(string amex)
-{    int l = strlen(amex);
+// long checkAmEx(string amex)
+// {    int l = strlen(amex);
 
-    if (l != 15)
-    {
-        //card is invalid
-        return 1;
-    }
+//     if (l != 15)
+//     {
+//         //card is invalid
+//         return 1;
+//     }
 
-    long cn = atol(amex);
-    int xx = 0;
-    int yy = xx;
-    xx = cn % 10;
-    yy += xx;
-    cn /= 10;
-    int x = 0;
-    int z = 0;
-    int y = x + z;
+//     long cn = atol(amex);
+//     int xx = 0;
+//     int yy = xx;
+//     xx = cn % 10;
+//     yy += xx;
+//     cn /= 10;
+//     int x = 0;
+//     int z = 0;
+//     int y = x + z;
 
-    for (int i = 0; i < 7; i++)
-    {
-        z = 0;
-        x = cn % 10;
-        x *= 2;
-        if (x > 9)
-        {
-            z = x % 10;
-            x /= 10;
-        }
-        y = x + y + z;
-        cn /= 10;
-        xx = cn % 10;
-        yy += xx;
-        cn/= 10;
-    }
+//     for (int i = 0; i < 7; i++)
+//     {
+//         z = 0;
+//         x = cn % 10;
+//         x *= 2;
+//         if (x > 9)
+//         {
+//             z = x % 10;
+//             x /= 10;
+//         }
+//         y = x + y + z;
+//         cn /= 10;
+//         xx = cn % 10;
+//         yy += xx;
+//         cn/= 10;
+//     }
 
-    y += yy;
+//     y += yy;
 
-    if (y % 10 == 0)
-        {
-            return 10;
-        }
-        else
-        {
-            return 0;
-        }
-}
+//     if (y % 10 == 0)
+//         {
+//             return 10;
+//         }
+//         else
+//         {
+//             return 0;
+//         }
+// }
 
-long checkMstrCrd(string mstrCrd)
-{    int l = strlen(mstrCrd);
+// long checkMstrCrd(string mstrCrd)
+// {    int l = strlen(mstrCrd);
 
-    if (l != 16)
-    {
-        //card is invalid
-        return 1;
-    }
+//     if (l != 16)
+//     {
+//         //card is invalid
+//         return 1;
+//     }
 
-    long cn = atol(mstrCrd);
-    int xx = 0;
-    int yy = xx;
-    xx = cn % 10;
-    yy += xx;
-    cn /= 10;
-    int x = 0;
-    int z = 0;
-    int y = x + z;
+//     long cn = atol(mstrCrd);
+//     int xx = 0;
+//     int yy = xx;
+//     xx = cn % 10;
+//     yy += xx;
+//     cn /= 10;
+//     int x = 0;
+//     int z = 0;
+//     int y = x + z;
 
-    for (int i = 0; i < 8; i++)
-    {
-        z = 0;
-        x = cn % 10;
-        x *= 2;
-        if (x > 9)
-        {
-            z = x % 10;
-            x /= 10;
-        }
-        y = x + y + z;
-        cn /= 10;
-        xx = cn % 10;
-        yy += xx;
-        cn/= 10;
-    }
+//     for (int i = 0; i < 8; i++)
+//     {
+//         z = 0;
+//         x = cn % 10;
+//         x *= 2;
+//         if (x > 9)
+//         {
+//             z = x % 10;
+//             x /= 10;
+//         }
+//         y = x + y + z;
+//         cn /= 10;
+//         xx = cn % 10;
+//         yy += xx;
+//         cn/= 10;
+//     }
 
-    y += yy;
+//     y += yy;
 
-    if (y % 10 == 0)
-        {
-            return 10;
-        }
-        else
-        {
-            return 0;
-        }
-}
+//     if (y % 10 == 0)
+//         {
+//             return 10;
+//         }
+//         else
+//         {
+//             return 0;
+//         }
+// }
