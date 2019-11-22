@@ -98,7 +98,7 @@ long checkCardType(string cn)
     {
         if (l == 13 || l == 16)
         {
-        return 2;
+            return 2;
         }
     }
     //AmEx
@@ -108,7 +108,7 @@ long checkCardType(string cn)
         {
             if (l == 15)
             {
-            return 3;
+                return 3;
             }
         }
     }
@@ -119,7 +119,7 @@ long checkCardType(string cn)
         {
             if (l == 16)
             {
-            return 4;
+                return 4;
             }
         }
     }
@@ -139,32 +139,30 @@ long checkSum(string cn)
     int z = 0;
     int y = x + z;
 
-    // if (l == 13)
-    // {
-        for (int i = 0, j = (l / 2); i < j; i++)
+    for (int i = 0, j = (l / 2); i < j; i++)
+    {
+        z = 0;
+        x = ccn % 10;
+        x *= 2;
+        if (x > 9)
         {
-            z = 0;
-            x = ccn % 10;
-            x *= 2;
-            if (x > 9)
-            {
-                z = x % 10;
-                x /= 10;
-            }
-            y = x + y + z;
-            ccn /= 10;
-            xx = ccn % 10;
-            yy += xx;
-            ccn/= 10;
+            z = x % 10;
+            x /= 10;
         }
+        y = x + y + z;
+        ccn /= 10;
+        xx = ccn % 10;
+        yy += xx;
+        ccn /= 10;
+    }
     y += yy;
 
     if (y % 10 == 0)
-        {
-            return 10;
-        }
-        else
-        {
-            return 0;
-        }
+    {
+        return 10;
+    }
+    else
+    {
+        return 0;
+    }
 }
