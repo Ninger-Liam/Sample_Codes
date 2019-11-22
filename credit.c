@@ -10,6 +10,8 @@ long checkAmEx(string amex);
 long checkMstrCrd(string mstrCrd);
 long checkCardType(string cn);
 bool checkNumeric(string cn);
+long checkLength(string cn);
+long checkSum(string cn);
 
 int main(void)
 {
@@ -26,7 +28,7 @@ int main(void)
 
     if (ct == 2)
     {
-        int v = checkVisa(creditNum);
+        int v = checkSum(creditNum);
         if (v == 10)
         {
             printf("VISA\n");
@@ -38,7 +40,7 @@ int main(void)
     }
     else if (ct == 3)
     {
-        int a = checkAmEx(creditNum);
+        int a = checkSum(creditNum);
         if (a == 10)
         {
             printf("AMEX\n");
@@ -50,7 +52,7 @@ int main(void)
     }
     else if (ct == 4)
     {
-        int mc = checkMstrCrd(creditNum);
+        int mc = checkSum(creditNum);
         if (mc == 10)
         {
             printf("MASTERCARD\n");
@@ -90,21 +92,24 @@ bool checkNumeric(string cn)
 
 long checkCardType(string cn)
 {
+    int l = strlen(cn);
     //Visa
     if (cn[0] == '4')
     {
+        if (l == 13 || l == 16)
+        {
         return 2;
+        }
     }
     //AmEx
     else if (cn[0] == '3')
     {
         if (cn[1] == '4' || cn[1] == '7')
         {
+            if (l == 15)
+            {
             return 3;
-        }
-        else
-        {
-            return 1;
+            }
         }
     }
     //MasterCard
@@ -112,44 +117,34 @@ long checkCardType(string cn)
     {
         if (cn[1] == '1' || cn[1] == '2' || cn[1] == '3' || cn[1] == '4' || cn[1] == '5')
         {
+            if (l == 16)
+            {
             return 4;
-        }
-        else
-        {
-            return 1;
+            }
         }
     }
-    else
-    {
-        return 1;
-    }
+    return 1;
 }
 
-long checkVisa(string visa)
-{    int l = strlen(visa);
-
-    if (l != 13 && l != 16)
-    {
-        //card is invalid
-        return 1;
-    }
-
-    long cn = atol(visa);
+long checkSum(string cn)
+{
+    int l = strlen(cn);
+    long ccn = atol(cn);
     int xx = 0;
     int yy = xx;
-    xx = cn % 10;
+    xx = ccn % 10;
     yy += xx;
-    cn /= 10;
+    ccn /= 10;
     int x = 0;
     int z = 0;
     int y = x + z;
 
-    if (l == 13)
-    {
-        for (int i = 0; i < 6; i++)
+    // if (l == 13)
+    // {
+        for (int i = 0; i < (l / 2); i++)
         {
             z = 0;
-            x = cn % 10;
+            x = ccn % 10;
             x *= 2;
             if (x > 10)
             {
@@ -157,31 +152,31 @@ long checkVisa(string visa)
                 x /= 10;
             }
             y = x + y + z;
-            cn /= 10;
-            xx = cn % 10;
+            ccn /= 10;
+            xx = ccn % 10;
             yy += xx;
-            cn/= 10;
+            ccn/= 10;
         }
-    }
-    else if (l == 16)
-    {
-        for (int i = 0; i < 8; i++)
-        {
-            z = 0;
-            x = cn % 10;
-            x *= 2;
-            if (x > 9)
-            {
-                z = x % 10;
-                x /= 10;
-            }
-            y = x + y + z;
-            cn /= 10;
-            xx = cn % 10;
-            yy += xx;
-            cn/= 10;
-        }
-    }
+    // }
+    // else if (l == 16)
+    // {
+    //     for (int i = 0; i < (l / 2); i++)
+    //     {
+    //         z = 0;
+    //         x = cn % 10;
+    //         x *= 2;
+    //         if (x > 9)
+    //         {
+    //             z = x % 10;
+    //             x /= 10;
+    //         }
+    //         y = x + y + z;
+    //         cn /= 10;
+    //         xx = cn % 10;
+    //         yy += xx;
+    //         cn/= 10;
+    //     }
+    // // }
     y += yy;
 
     if (y % 10 == 0)
