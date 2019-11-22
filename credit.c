@@ -9,6 +9,7 @@ long checkVisa(string visa);
 long checkAmEx(string amex);
 long checkMstrCrd(string mstrCrd);
 long checkCardType(string cn);
+
 int main(int argc, string argv[])
 {
     if (argc != 2)
@@ -32,7 +33,7 @@ int main(int argc, string argv[])
     }
     else if (ct == 3)
     {
-        int a = checkVisa(argv[1]);
+        int a = checkAmEx(argv[1]);
         if (a == 10)
         {
             printf("AMEX\n");
@@ -122,7 +123,7 @@ long checkVisa(string visa)
 
     if (l == 13)
     {
-        for (int i = 0; i > 6; i++)
+        for (int i = 0; i < 6; i++)
         {
             z = 0;
             x = cn % 10;
@@ -189,7 +190,7 @@ long checkAmEx(string amex)
     int z = 0;
     int y = x + z;
 
-    for (int i = 0; i > 7; i++)
+    for (int i = 0; i < 7; i++)
     {
         z = 0;
         x = cn % 10;
@@ -221,7 +222,7 @@ long checkAmEx(string amex)
 long checkMstrCrd(string mstrCrd)
 {    int l = strlen(mstrCrd);
 
-    if (l != 15)
+    if (l != 16)
     {
         //card is invalid
         return 1;
@@ -237,7 +238,7 @@ long checkMstrCrd(string mstrCrd)
     int z = 0;
     int y = x + z;
 
-    for (int i = 0; i > 8; i++)
+    for (int i = 0; i < 8; i++)
     {
         z = 0;
         x = cn % 10;
