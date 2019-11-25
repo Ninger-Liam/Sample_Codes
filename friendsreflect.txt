@@ -1,0 +1,5 @@
+Name: Liam Ninger
+Period: 2
+
+Write your reflection here
+The old friends assignment really wasn't too difficult of an assignment to me. The whole concept of argc and argv made a lot of sense to me. Argc is just a numeric value that counts the amount of arguments in the command line input and argv is an array of strings that stores all of the commands as strings. Using these in your int main function allows you to save time in your program by prompting them at the beginning of the program instead of during the middle of it. Hello was definetly the easiest of the three with just printing argv[1] after hello in a printf statment. Fahenheit ttle bit harder, but after looking through the manual to find the function needed to convert argv[1] into a float (atof) the program was practically finished. The hardest part of pennies was changing all of the do while loops into if statments, which again wasn't too complicated. overall this assignment really wasn't too difficult.
