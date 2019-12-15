@@ -207,6 +207,7 @@ bool move(int tile)
             {
                 ii = i;
                 jj = j;
+                break;
             }
         }
     }
@@ -218,10 +219,10 @@ bool move(int tile)
         blank_col = jj;
         return true;
     }
-    else
-    {
+    // else
+    // {
         return false;
-    }
+    // }
 }
 
 // Returns true if game is won (i.e., board is in winning configuration), else false
@@ -229,28 +230,45 @@ bool won(void)
 {
     int x = d * d;
     int check_board[x][x];
-    for (int m = 0; m < x; m++)
-    {
-        for (int n = 0; n < x; n++)
-        {
-            check_board[m][n] = 0;
-        }
-    }
+    // for (int m = 0; m < x; m++)
+    // {
+    //     for (int n = 0; n < x; n++)
+    //     {
+    //         check_board[m][n] = 0;
+    //     }
+    // }
 
-    for (int i = d - 1; i > 0; i--)
+    // for (int i = d - 1; i > 0; i--)
+    // {
+    //     for (int j = d - 1; j > 0; j--)
+    //     {
+            // if (i == d - 1 && j == d - 1)
+            // {
+            //     check_board[i][j] = 0;
+            // }
+            // else
+            // {
+            // check_board[i][j] = x - 1;
+            // x = x - 1;
+            // }
+    //     }
+    // }
+
+    for (int i = 0; i < d; i++)
     {
-        for (int j = d - 1; j > 0; j--)
+        for (int j = 0; j < d; j++)
         {
+            if (i == d - 1 && j == d - 1)
+            {
+                check_board[i][j] = 0;
+            }
+            else
+            {
             check_board[i][j] = x - 1;
             x = x - 1;
-        }
-    }
+            }
 
-    for (int k = 0; k < d; k++)
-    {
-        for (int l = 0; l < d; l++)
-        {
-            if (check_board[k][l] != board[k][l])
+            if (check_board[i][j] != board[i][j])
             {
                 return false;
             }
