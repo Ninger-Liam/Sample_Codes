@@ -88,7 +88,7 @@ int main(int argc, string argv[])
         fflush(file);
 
         // Check for win
-        if (won() == true)
+        if (won())
         {
             printf("ftw!\n");
             break;
@@ -197,82 +197,54 @@ void draw(void)
 // If tile borders empty space, moves tile and returns true, else returns false
 bool move(int tile)
 {
-    int ii;
-    int jj;
     for (int i = 0; i < d; i++)
     {
         for (int j = 0; j < d; j++)
         {
             if (board[i][j] == tile)
             {
-                ii = i;
-                jj = j;
-                break;
+                if (board[i][j] == board[blank_row - 1][blank_col] || board[i][j] == board[blank_row][blank_col - 1] || board[i][j] == board[blank_row + 1][blank_col] || board[i][j] == board[blank_row][blank_col + 1])
+                {
+                    board[i][j] = 0;
+                    board[blank_row][blank_col] = tile;
+                    blank_row = i;
+                    blank_col = j;
+                    return true;
+                }
             }
         }
     }
-    if (board[ii][jj] == board[blank_row - 1][blank_col] || board[ii][jj] == board[blank_row][blank_col - 1] || board[ii][jj] == board[blank_row + 1][blank_col] || board[ii][jj] == board[blank_row][blank_col + 1])
-    {
-        board[ii][jj] = 0;
-        board[blank_row][blank_col] = tile;
-        blank_row = ii;
-        blank_col = jj;
-        return true;
-    }
-    // else
-    // {
-        return false;
-    // }
+    return false;
 }
 
 // Returns true if game is won (i.e., board is in winning configuration), else false
 bool won(void)
 {
-    int x = d * d;
-    int check_board[x][x];
-    // for (int m = 0; m < x; m++)
-    // {
-    //     for (int n = 0; n < x; n++)
-    //     {
-    //         check_board[m][n] = 0;
-    //     }
-    // }
+    int x = 1;
 
-    // for (int i = d - 1; i > 0; i--)
-    // {
-    //     for (int j = d - 1; j > 0; j--)
-    //     {
-            // if (i == d - 1 && j == d - 1)
-            // {
-            //     check_board[i][j] = 0;
-            // }
-            // else
-            // {
-            // check_board[i][j] = x - 1;
-            // x = x - 1;
-            // }
-    //     }
-    // }
-
-    for (int i = 0; i < d; i++)
+    for (int i = 0; i <= d - 1; i++)
     {
-        for (int j = 0; j < d; j++)
+        for (int j = 0; j <= d - 1; j++)
         {
-            if (i == d - 1 && j == d - 1)
+            if (x == d * d)
             {
-                check_board[i][j] = 0;
-            }
-            else
-            {
-            check_board[i][j] = x - 1;
-            x = x - 1;
+                if (board[i][j] == 0)
+                {
+                    return true;
+                }
             }
 
-            if (check_board[i][j] != board[i][j])
+            if (board[i][j] != x)
             {
                 return false;
             }
+            // if (i == d - 1 && j == d - 1)
+            // {
+            //     printf("break");
+            //     break;
+            // }
+            x = x + 1;
         }
     }
-    return true;
+    return false;
 }
