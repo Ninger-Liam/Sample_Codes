@@ -5,6 +5,7 @@
 #include <cs50.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 #include <unistd.h>
 
 // Constants
@@ -197,8 +198,6 @@ void draw(void)
 // If tile borders empty space, moves tile and returns true, else returns false
 bool move(int tile)
 {
-
-
     for (int i = 0; i < d; i++)
     {
         for (int j = 0; j < d; j++)
