@@ -197,6 +197,8 @@ void draw(void)
 // If tile borders empty space, moves tile and returns true, else returns false
 bool move(int tile)
 {
+
+
     for (int i = 0; i < d; i++)
     {
         for (int j = 0; j < d; j++)
@@ -238,11 +240,6 @@ bool won(void)
             {
                 return false;
             }
-            // if (i == d - 1 && j == d - 1)
-            // {
-            //     printf("break");
-            //     break;
-            // }
             x = x + 1;
         }
     }
