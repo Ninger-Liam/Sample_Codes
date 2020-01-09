@@ -152,7 +152,11 @@ void init(void)
             for (int j = 0; j < d; j++)
             {
                 board[i][j] = x - 1;
-
+                if (board[i][j] == 0)
+                {
+                    blank_row = i;
+                    blank_col = j;
+                }
                 x = x - 1;
             }
         }
