@@ -213,7 +213,8 @@ bool move(int tile)
         {
             if (board[i][j] == tile)
             {
-                if (board[i][j] == board[blank_row - 1][blank_col] || board[i][j] == board[blank_row][blank_col - 1] || board[i][j] == board[blank_row + 1][blank_col] || board[i][j] == board[blank_row][blank_col + 1])
+                if (board[i][j] == board[blank_row - 1][blank_col] || board[i][j] == board[blank_row][blank_col - 1]
+                    || board[i][j] == board[blank_row + 1][blank_col] || board[i][j] == board[blank_row][blank_col + 1])
                 {
                     board[i][j] = 0;
                     board[blank_row][blank_col] = tile;
