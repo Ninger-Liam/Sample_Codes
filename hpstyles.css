@@ -1,0 +1,73 @@
+#pg1{
+    text-align:center;
+    font-family:American Typewriter, serif;
+    background-size:cover;
+    background-repeat:no-repeat;
+    overflow-y:scroll;
+}
+.color{
+    background-color:LightSeaGreen;
+    overflow-y:scroll;
+    font-family:American Typewriter, serif;
+}
+button{
+    background-color:transparent;
+    color:white;
+    text-shadow:4px 4px 10px black;
+    border:none;
+    display:block;
+}
+button:hover{
+    cursor:pointer;
+    color:blue;
+}
+#txt{
+    position:fixed;
+    text-align:left;
+    left:0;
+    bottom:0;
+    font-family:American Typewriter, serif;
+    font-size:24px;
+    color:white;
+    overflow-y:visible;
+    padding:20px;
+    text-shadow:2px 2px 5px black;
+}
+#tblTxt{
+    position:fixed;
+    text-align:left;
+    top:100px;
+    font-family:American Typewriter, serif;
+    font-size:28px;
+    color:white;
+    padding:40px;
+    margin:20px;
+    text-shadow:2px 2px 5px black;
+}
+#twr{
+    float:left;
+    margin-right:30px;
+}
+#tlks{
+    float:right;
+}
+#spc{
+    margin-top:425px;
+    padding:40px;
+}
+#tx{
+    position:fixed;
+    text-align:left;
+    font-family:American Typewriter, serif;
+    font-size:24px;
+    color:white;
+    padding:20px;
+    text-shadow:2px 2px 5px black;
+}
+#mT{
+    float:left;
+    margin-right:30px;
+}
+.navDis{
+    display:none;
+}
