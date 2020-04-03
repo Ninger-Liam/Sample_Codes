@@ -1,0 +1,10 @@
+I find javascript to be kind of easy, although I find myself struggling to retaining some of the functions or
+phrases in order to make the code run properly. But besides that, I feel that my prior experience with C helps me
+program a lot of these projects in javascript. One of the things in javascript that I have to get used to is using
+the .value function for variables. The biggest struggle I had when programming temperature was that I was missing the
+.value function after the input and choice variables. I kept reading my code over and over because I couldn't figure
+out why it wasn't working. Once I read over the problem I realized that the only thing that was wrong with it was
+that I forgot the .value for those variables, everything came together. I realized afterwards that I still needed
+some checks that would make sure that the user is firstly actually entering something into the converter
+and secondly making sure that what the user types in is actually a number with no other characters.
+After that I got a little bored waiting to do the skittles project and added a little extra css to spice things up.
