@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <title>Temperature</title>
+  </head>
+  <body>
+
+    <div class="container">
+      <h1 class="mt-5 mb-3">Fahrenheit / Celsius Conversion</h1>
+
+      <div id="tempContainer" class="form-group">
+        <label for="tempInput">Degrees to convert</label>
+        <input type="text" class="form-control" id="tempInput">
+        <div class="input-group">
+          <select class="custom-select" id="choose">
+            <option value="none" selected>Choose one...</option>
+            <option value="ftoc">Fahrenheit to Celsius</option>
+            <option value="ctof">Celsius to Fahrenheit</option>
+          </select>
+          <div class="input-group-append">
+            <button onclick="convert()" class="btn btn-outline-secondary" type="button">Convert</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-5" id="result"></div>
+    </div>
+    <script>
+      let input = document.querySelector("#tempInput");
+      let choice = document.querySelector("#choose");
+      let output = document.querySelector("#result");
+
+      function convert(){
+          if (choice.value === "none"){
+            output.innerHTML = "<p>Please select a conversion method</p>"
+            return;
+          }
+          if (input.value === ''){
+            output.innerHTML = "<p>Please enter a number</p>"
+          }
+          if (isNaN(input.value)){
+            output.innerHTML = "<p>Oops! That isn't a number</p>"
+            return;
+          }
+          if (choice.value === "ftoc"){
+            num = (input.value - 32) * (5 / 9)
+            num = num.toFixed(1)
+            output.innerHTML = "<p>" + input.value + " degrees fahrenheit is " + num + " degrees celcius!</p>"
+          }
+          if (choice.value === "ctof"){
+            num = (input.value * (9 / 5)) + 32
+            num = num.toFixed(1)
+            output.innerHTML = "<p>" + input.value + " degrees celcius is " + num + " degrees fahrenheit!</p>"
+          }
+      }
+    </script>
+  </body>
+</html>
