@@ -147,7 +147,7 @@ def is_tie(min_votes):
 
 # Eliminate the candidate (or candidates) in last place
 def eliminate(min_votes):
-    for i in range(candidate_cout):
+    for i in range(candidate_count):
         if candidates[i].vote == min_votes:
             candidates[i].eliminated = True
     return
