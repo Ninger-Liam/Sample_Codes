@@ -52,15 +52,17 @@ def vote(name):
 def print_winner():
     most_votes = 0
     c = 0
-    for keys,value in candidates.items():
+    for keys, value in candidates.items():
         for key in candidates:
             if c >= 1:
                 break
             if candidates[key] > most_votes:
                 most_votes = candidates[key]
-        if value == most_votes :
+        if value == most_votes:
             print(keys)
         c += 1
     return
+
+
 if __name__ == "__main__":
     main()
