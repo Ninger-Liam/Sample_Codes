@@ -60,8 +60,7 @@ def print_winner():
                 most_votes = candidates[key]
         if value == most_votes :
             print(keys)
-            return
         c += 1
-
+    return
 if __name__ == "__main__":
     main()
