@@ -25,7 +25,6 @@ def main():
     if voter_count <= 0:
         print(f"Please provide a positive integer")
         exit(3)
-
     # Loop over all voters
     for i in range(voter_count):
         while True:
@@ -42,8 +41,8 @@ def main():
 
 # Update vote totals given a new vote
 def vote(name):
-    for key in candidates.key():
-        if name in candidates.key():
+    for key in candidates:
+        if name in candidates:
             candidates[name] += 1
             return True
     return False
@@ -52,14 +51,17 @@ def vote(name):
 # Print the winner (or winners) of the electrion
 def print_winner():
     most_votes = 0
-    for candidates in candidates:
+    c = 0
+    for keys,value in candidates.items():
         for key in candidates:
-            if candidates.value() > most_votes:
-                most_votes = candidates.value()
-        if candidates.value == most_votes:
-            print(f"{candidates.key}")
-    return
-
+            if c >= 1:
+                break
+            if candidates[key] > most_votes:
+                most_votes = candidates[key]
+        if value == most_votes :
+            print(keys)
+            return
+        c += 1
 
 if __name__ == "__main__":
     main()
