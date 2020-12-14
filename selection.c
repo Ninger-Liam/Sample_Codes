@@ -41,10 +41,13 @@ void selection_sort(int arr[], int size)
     // TODO
     int s = 0;
     int a = 0;
-    for(int i = 0; i < size - 1; i++){
+    for (int i = 0; i < size - 1; i++)
+    {
         s = i;
-        for(int j = i + 1; j < size - 1; j++){
-            if(arr[j] < arr[s]){
+        for (int j = i + 1; j < size - 1; j++)
+        {
+            if (arr[j] < arr[s])
+            {
                 s = j;
             }
         }
