@@ -22,7 +22,7 @@ def bin_search(numbers, target):
         mid = (min_val + max_val) // 2
         if target < numbers[mid]:
             max_val = mid - 1
-        elif target > number[mid]:
+        elif target > numbers[mid]:
             min_val = mid + 1
         elif target == numbers[mid]:
             return True
