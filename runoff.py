@@ -89,8 +89,8 @@ def main():
 
 # Record preference if vote is valid
 def vote(voter, rank, name):
-    for i in candidates:
-        if name in candidates:
+    for i in range(candidate_count):
+        if name in candidates.name:
             preferences[voter][rank] = i
             return True
     return False
@@ -98,13 +98,10 @@ def vote(voter, rank, name):
 
 # Tabulate votes for non-eliminated candidates
 def tabulate():
-    for i in range(voter_count):
-        for j in range(candidate_count):
-            if candidates[preferences[i][j]].eliminated:
-                continue
-            else:
-                candidates[preferences[i][j]].vote += 1
-                break
+    for voter_perference in preferences:
+        for candidate in voter_perference:
+            if not candidates[candidate].eliminated:
+                candidates[candidate].vote += 1
     return
 
 
