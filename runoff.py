@@ -90,7 +90,7 @@ def main():
 # Record preference if vote is valid
 def vote(voter, rank, name):
     for i in range(candidate_count):
-        if name in candidates.name:
+        if name in candidates[i].name:
             preferences[voter][rank] = i
             return True
     return False
