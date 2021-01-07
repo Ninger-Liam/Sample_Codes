@@ -42,8 +42,11 @@ def main():
 
     # Initialize global preferences list
     global preferences
-    preferences = [[0] * candidate_count] * voter_count
-
+    # preferences = [[0] * candidate_count] * voter_count
+    preferences = []
+    for i in range(voter_count):
+        preferences.append([])
+        for j in range(candidate_count)
     # Keep querying for votes
     for i in range(voter_count):
 
@@ -90,7 +93,8 @@ def main():
 # Record preference if vote is valid
 def vote(voter, rank, name):
     for i in range(candidate_count):
-        if name in candidates[i].name:
+        if name == candidates[i].name:
+        # if name in candidates[i].name:
             preferences[voter][rank] = i
             return True
     return False
@@ -108,7 +112,7 @@ def tabulate():
 # Print the winner of the election, if there is one
 def print_winner():
     for i in range(candidate_count):
-        if candidates[i].votes >= (voter_count / 2) + 1:
+        if candidates[i].votes >= (voter_count / 2) + 1 and not candidate[i].eliminated:
             print(f"{candidates[i].name}")
             return True
     return False
