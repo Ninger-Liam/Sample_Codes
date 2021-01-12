@@ -11,6 +11,7 @@ class Candidate():
         self.name = name
         self.votes = votes
         self.eliminated = eliminated
+        
 
 candidates = []
 
