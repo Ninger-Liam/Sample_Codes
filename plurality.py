@@ -56,7 +56,7 @@ def print_winner():
             if candidates[key] > most_votes:
                 most_votes = candidates[key]
         if candiates.value == most_votes:
-            print(keys)
+            print(candidates[i].name)
     return
 
 
