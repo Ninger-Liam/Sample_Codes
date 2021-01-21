@@ -52,7 +52,7 @@ def vote(name):
 def print_winner():
     most_votes = 0
     c = 0
-    for keys, yesvalue in candidates.items():
+    for keys in candidates.items():
         for key in candidates:
             if c >= 1:
                 break
