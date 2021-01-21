@@ -18,7 +18,7 @@ def main():
         print(f"Maximum number of candidates is {MAX}")
         exit(2)
 
-    for candidate in argv[1]:
+    for candidate in argv[1:]:
         candidates[candidate] = 0
 
     voter_count = get_int("Number of voters: ")
@@ -51,12 +51,16 @@ def vote(name):
 # Print the winner (or winners) of the electrion
 def print_winner():
     most_votes = 0
-    for i in range(len(candidates)):
+    c = 0
+    for keys, yesvalue in candidates.items():
         for key in candidates:
+            if c >= 1:
+                break
             if candidates[key] > most_votes:
                 most_votes = candidates[key]
-        if candiates.value == most_votes:
-            print(candidates[i].name)
+        if candidates[keys] == most_votes:
+            print(keys)
+        c += 1
     return
 
 
