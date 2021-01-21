@@ -51,16 +51,12 @@ def vote(name):
 # Print the winner (or winners) of the electrion
 def print_winner():
     most_votes = 0
-    c = 0
-    for keys, yesvalue in candidates.items():
+    for i in range(len(candidates)):
         for key in candidates:
-            if c >= 1:
-                break
             if candidates[key] > most_votes:
                 most_votes = candidates[key]
         if candiates.value == most_votes:
             print(keys)
-        c += 1
     return
 
 
