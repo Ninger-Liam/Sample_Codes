@@ -18,7 +18,7 @@ def main():
         print(f"Maximum number of candidates is {MAX}")
         exit(2)
 
-    for candidate in argv[1:]:
+    for candidate in argv[1]:
         candidates[candidate] = 0
 
     voter_count = get_int("Number of voters: ")
