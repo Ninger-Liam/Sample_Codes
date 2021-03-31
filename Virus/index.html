@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/addons/p5.sound.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js" integrity="sha256-TQq84xX6vkwR0Qs1qH5ADkP+MvH0W+9E7TdHJsoIQiM=" crossorigin="anonymous"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script> -->
+    <meta charset="utf-8" />
+    <title>Virus Simulator</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+
+
+
+        <div class="col-md-6 pr-md-5">
+          <div id="controls">
+          <h1 class="mt-3">Virus Simulator</h1>
+          <div class="mt-2" id="canvas"></div>
+          <div class="form-group mt-3">
+            <label for="population">Population</label>
+            <input type="text" class="form-control" id="population" aria-describedby="emailHelp" placeholder="Default is 100">
+          </div>
+          <div class="form-group">
+            <label for="percent">Percent Staying Home</label>
+            <input type="text" class="form-control" id="percent" placeholder="Default is Zero">
+          </div>
+          <div class="form-group">
+            <label for="mortality">Mortality Rate </label>
+            <input type="text" class="form-control" id="dead" placeholder="Default is Zero">
+          </div>
+          <div class="form-group">
+            <label for="r0">R<sub>0</sub></label>
+            <input type="text" class="form-control" id="r0" placeholder="Default is median for covid-19 which is 5.7">
+          </div>
+          <button id="restart" onclick="restart()" type="button" class="btn btn-secondary mt-1">Reset</button>
+        </div>
+      </div>
+
+
+        <div class="col-md-6">
+          <h1 class="mt-3">Hospital Capacity</h1>
+          <canvas id="myChart" width="400" height="400"></canvas>
+
+          <div class="input-group mt-3">
+            <input id="bedCount" type="text" class="form-control" placeholder="Default is 50" aria-label="Recipient's username" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <button onclick="changeBeds()" class="btn btn-secondary" type="button">Reset Number of Beds</button>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+    <script src="sketch.js"></script>
+    <script src="chart.js"></script>
+    <script>
+      function restart() {
+        if (document.querySelector("#population").value) {
+          number = document.querySelector("#population").value;
+        } else {
+          number = 100;
+        }
+
+        if (document.querySelector("#percent").value) {
+          percentOut = 100 - document.querySelector("#percent").value;
+        } else {
+          percentOut = 100;
+        }
+
+        if (document.querySelector("#dead").value) {
+          mortalityRate = document.querySelector("#dead").value;
+        } else {
+          mortalityRate = 0;
+        }
+
+        if (document.querySelector("#r0").value) {
+          r0 = parseFloat(document.querySelector("#r0").value);
+        } else {
+          r0 = 5.7;
+        }
+
+        people = [];
+        setup();
+        myChart.data.datasets[0].data = [];
+        myChart.data.datasets[2].data = [];
+        myChart.data.datasets[3].data = [];
+        let newPop = document.querySelector("#population").value
+        if (newPop) {
+          myChart.options.scales.yAxes[0].ticks.max = parseInt(newPop);
+          myChart.options.scales.yAxes[2].ticks.max = parseInt(newPop);
+          myChart.options.scales.yAxes[3].ticks.max = parseInt(newPop);
+        }
+        myChart.update();
+      }
+    </script>
+  </body>
+</html>
